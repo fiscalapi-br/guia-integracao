@@ -6,7 +6,7 @@ Obrigado por considerar contribuir com a documentacao da FiscalAPI!
 
 ### Reportar Erros na Documentacao
 
-Abra uma [issue](https://github.com/fiscalapii/guia-integracao/issues) descrevendo:
+Abra uma [issue](https://github.com/fiscalapi-br/guia-integracao/issues) descrevendo:
 - Qual pagina tem o erro
 - O que esta errado
 - O que deveria ser
