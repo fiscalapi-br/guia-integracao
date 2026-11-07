@@ -49,7 +49,7 @@ end
 
 # Exemplo de uso
 if __FILE__ == $PROGRAM_NAME
-  resultado = consultar_ie(uf: "MT", cpf: "12345678900")
+  resultado = consultar_ie(uf: "MT", cpf: "12345678909")
   puts "Encontradas #{resultado['results'].length} inscricoes em MT"
 
   resultado["results"].each do |ie|

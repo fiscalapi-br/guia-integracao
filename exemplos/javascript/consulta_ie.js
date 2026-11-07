@@ -61,7 +61,7 @@ async function perfilProdutor({ cpf, cnpj } = {}) {
 // Exemplo de uso
 async function main() {
   // Consulta IE em Mato Grosso
-  const resultado = await consultarIE("MT", { cpf: "12345678900" });
+  const resultado = await consultarIE("MT", { cpf: "12345678909" });
   console.log(`Encontradas ${resultado.results.length} inscricoes em MT`);
 
   for (const ie of resultado.results) {
@@ -71,7 +71,7 @@ async function main() {
   }
 
   // Consulta em todos os estados
-  const todos = await consultarIETodos({ cpf: "12345678900" });
+  const todos = await consultarIETodos({ cpf: "12345678909" });
   for (const ufResult of todos.results) {
     const { uf, source_status, results } = ufResult;
     console.log(`  ${uf}: ${source_status.status} — ${results.length} IE(s)`);

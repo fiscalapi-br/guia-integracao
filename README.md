@@ -46,7 +46,7 @@ Crie uma conta em [app.fiscalapi.com.br](https://app.fiscalapi.com.br) e gere a 
 ### 2. Faca sua primeira consulta
 
 ```bash
-curl -X GET "https://api.fiscalapi.com.br/api/consultar?uf=MT&cpf=12345678900" \
+curl -X GET "https://api.fiscalapi.com.br/api/consultar?uf=MT&cpf=12345678909" \
   -H "X-API-Key: sua_api_key_aqui"
 ```
 
@@ -55,7 +55,7 @@ curl -X GET "https://api.fiscalapi.com.br/api/consultar?uf=MT&cpf=12345678900" \
 ```json
 {
   "request_id": "a1b2c3d4-e5f6-7890-abcd-ef1234567890",
-  "document": "12345678900",
+  "document": "12345678909",
   "document_type": "cpf",
   "uf": "MT",
   "cached": false,
@@ -119,10 +119,10 @@ Detalhes completos em [docs/autenticacao.md](docs/autenticacao.md).
 | **Pro** | R$ 130/mes | 2.000 | 60 | Painel + API |
 | **Enterprise** | R$ 250/mes | 10.000 | 120 | Painel + API |
 
-- A maioria das consultas consome 1 credito; NF-e por chave consome 3 (so quando o XML vem) e CNPJ ao vivo consome 3.
+- A maioria das consultas consome 1 credito; NF-e por chave consome 3 nos planos Lite, Starter e Pro e 1 no Enterprise (so quando o XML vem) e CNPJ ao vivo consome 3.
 - Consulta com erro da fonte nao cobra.
 - Creditos extras a partir do Starter: R$ 0,12 (Starter), R$ 0,07 (Pro) e R$ 0,02 (Enterprise) por credito. No Lite, o caminho e o upgrade.
-- Quando os creditos acabam, a API responde `402` com o codigo `LIMITE_ATINGIDO` (`FREE_TIER_ESGOTADO` quando acabam as 10 gratis do mes). Sem chave, `403` com `API_KEY_ERROR`.
+- Quando os creditos acabam, a API responde `402` com o codigo `LIMITE_ATINGIDO`; quando sao as 10 gratis do mes que acabaram, o corpo traz tambem `free_queries_used`, `free_queries_limit` e `free_queries_renew_on`. Sem chave, `403` com `API_KEY_ERROR`.
 
 Tabela completa em [fiscalapi.com.br/precos](https://fiscalapi.com.br/precos/).
 

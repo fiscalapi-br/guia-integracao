@@ -70,11 +70,11 @@ public class ConsultaIE {
         ConsultaIE api = new ConsultaIE();
 
         // Consulta IE em Mato Grosso
-        String resultado = api.consultarIE("MT", "12345678900");
+        String resultado = api.consultarIE("MT", "12345678909");
         System.out.println("Resultado MT: " + resultado);
 
         // Consulta em todos os estados
-        String todos = api.consultarIETodos("12345678900");
+        String todos = api.consultarIETodos("12345678909");
         System.out.println("Todos os estados: " + todos);
     }
 }
