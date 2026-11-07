@@ -97,8 +97,10 @@ curl -X GET "https://api.fiscalapi.com.br/api/consultar?uf=MT&cpf=12345678900" \
 | 400 | `PARAMETRO_CONFLITANTE` | Mais de um documento informado |
 | 400 | `DOCUMENTO_INVALIDO` | CPF, CNPJ ou IE com formato invalido |
 | 402 | `LIMITE_ATINGIDO` | Creditos do mes esgotados |
+| 402 | `FREE_TIER_ESGOTADO` | As 10 consultas gratis do mes acabaram (conta sem plano) |
+| 403 | `API_KEY_ERROR` | Chave ausente, invalida ou revogada |
 | 429 | `RATE_LIMIT_EXCEEDED` | Limite de requisicoes por minuto do plano excedido |
-| 502 | `CAPTCHA_FALHOU` | Falha na resolucao do CAPTCHA da SEFAZ |
+| 502 | `CAPTCHA_FALHOU` | Falha temporaria ao consultar o portal do estado. Tente de novo |
 | 503 | `SITE_INDISPONIVEL` | Portal da SEFAZ fora do ar |
 
 ## UFs Suportadas

@@ -33,7 +33,8 @@ Todos os erros da FiscalAPI seguem o mesmo formato JSON:
 
 | Codigo | Descricao |
 |--------|-----------|
-| `LIMITE_ATINGIDO` | Creditos do mes esgotados. A resposta traz `usage`, `limit`, `extra_credits` e o `cost` da consulta |
+| `LIMITE_ATINGIDO` | Creditos do mes esgotados, ou consulta fora da cota gratis em conta sem plano. A resposta traz `usage`, `limit`, `extra_credits` e o `cost` da consulta |
+| `FREE_TIER_ESGOTADO` | As 10 consultas gratis do mes acabaram. Assine um plano ou recarregue saldo |
 
 ### Rate Limiting (HTTP 429)
 
@@ -45,7 +46,7 @@ Todos os erros da FiscalAPI seguem o mesmo formato JSON:
 
 | Codigo | Descricao |
 |--------|-----------|
-| `CAPTCHA_FALHOU` | Falha na resolucao do CAPTCHA da SEFAZ |
+| `CAPTCHA_FALHOU` | Falha temporaria ao consultar o portal do estado. Tente de novo |
 | `SITE_INDISPONIVEL` | Portal da SEFAZ temporariamente fora do ar |
 | `TODAS_FONTES_FALHARAM` | Nenhuma fonte de dados respondeu |
 

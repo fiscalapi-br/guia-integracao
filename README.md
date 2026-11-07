@@ -15,7 +15,7 @@ Ideal para ERPs, plataformas de emissao de NF-e, sistemas contabeis, agritechs e
 | Problema | Solucao FiscalAPI |
 |----------|-------------------|
 | Cada SEFAZ tem um portal diferente | Uma unica API padronizada para todos os estados |
-| Portais exigem CAPTCHA e certificado digital | Resolvemos CAPTCHA e autenticacao automaticamente |
+| Portais exigem etapas manuais e certificado digital | A API faz a consulta e devolve JSON padronizado |
 | Consulta manual, uma UF por vez | Consulta simultanea em todos os 27 estados |
 | Dados fragmentados entre Receita, SEFAZ e CNIR | Perfil consolidado do produtor em uma chamada |
 
@@ -41,7 +41,7 @@ Ideal para ERPs, plataformas de emissao de NF-e, sistemas contabeis, agritechs e
 
 ### 1. Obtenha sua API Key
 
-Crie uma conta em [app.fiscalapi.com.br](https://app.fiscalapi.com.br), assine um plano (a API comeca no Lite, R$ 19,99/mes) e gere a chave em **Chave API** no painel. As 10 consultas gratis por mes da conta valem so no painel, sem API.
+Crie uma conta em [app.fiscalapi.com.br](https://app.fiscalapi.com.br) e gere a chave em **Chave API** no painel. Conta que nunca assinou plano, com e-mail confirmado e sem recarga, tem 10 consultas gratis por mes no painel e pela API: IE em um estado (`/api/consultar`) e CNPJ (`/api/consultar-cnpj`). Nao valem para IE em todos os estados nem para CNPJ ao vivo. Depois disso, e preciso plano (a partir do Lite, R$ 19,99/mes) ou saldo.
 
 ### 2. Faca sua primeira consulta
 
@@ -113,7 +113,7 @@ Detalhes completos em [docs/autenticacao.md](docs/autenticacao.md).
 
 | Plano | Preco | Creditos/mes | Requisicoes/min | Acesso |
 |-------|-------|--------------|-----------------|--------|
-| **Gratis** | R$ 0 | 10 consultas | — | So no painel: IE (uma UF por vez) e CNPJ. Sem API |
+| **Gratis** | R$ 0 | 10 consultas | 5 | Painel + API: IE (uma UF por vez) e CNPJ. Conta que nunca assinou, com e-mail confirmado e sem recarga |
 | **Lite** | R$ 19,99/mes | 30 | 5 | Painel + API |
 | **Starter** | R$ 50/mes | 500 | 20 | Painel + API |
 | **Pro** | R$ 130/mes | 2.000 | 60 | Painel + API |
@@ -122,7 +122,7 @@ Detalhes completos em [docs/autenticacao.md](docs/autenticacao.md).
 - A maioria das consultas consome 1 credito; NF-e por chave consome 3 (so quando o XML vem) e CNPJ ao vivo consome 3.
 - Consulta com erro da fonte nao cobra.
 - Creditos extras a partir do Starter: R$ 0,12 (Starter), R$ 0,07 (Pro) e R$ 0,02 (Enterprise) por credito. No Lite, o caminho e o upgrade.
-- Quando os creditos acabam, a API responde `402` com o codigo `LIMITE_ATINGIDO`.
+- Quando os creditos acabam, a API responde `402` com o codigo `LIMITE_ATINGIDO` (`FREE_TIER_ESGOTADO` quando acabam as 10 gratis do mes). Sem chave, `403` com `API_KEY_ERROR`.
 
 Tabela completa em [fiscalapi.com.br/precos](https://fiscalapi.com.br/precos/).
 
@@ -130,6 +130,11 @@ Tabela completa em [fiscalapi.com.br/precos](https://fiscalapi.com.br/precos/).
 
 - **Site**: [fiscalapi.com.br](https://fiscalapi.com.br)
 - **Documentacao completa**: [docs.fiscalapi.com.br](https://docs.fiscalapi.com.br)
+- **Guias** (Excel, Google Sheets, n8n, Make, Power Automate, Python, Node.js, PHP): [docs.fiscalapi.com.br/docs/guias](https://docs.fiscalapi.com.br/docs/guias)
+- **Especificacao OpenAPI**: [docs.fiscalapi.com.br/openapi.json](https://docs.fiscalapi.com.br/openapi.json)
+- **Servidor MCP**: [fiscalapi-br/fiscalapi-mcp](https://github.com/fiscalapi-br/fiscalapi-mcp)
+- **Para desenvolvedores**: [fiscalapi.com.br/desenvolvedores](https://fiscalapi.com.br/desenvolvedores/)
+- **SDKs**: [Python](https://github.com/fiscalapi-br/fiscalapi-python), [Node.js](https://github.com/fiscalapi-br/fiscalapi-node), [PHP](https://github.com/fiscalapi-br/fiscalapi-php), [n8n](https://github.com/fiscalapi-br/n8n-nodes-fiscalapi), [Postman](https://github.com/fiscalapi-br/fiscalapi-postman)
 - **Dashboard**: [app.fiscalapi.com.br](https://app.fiscalapi.com.br)
 - **Contato**: contato@fiscalapi.com.br
 
