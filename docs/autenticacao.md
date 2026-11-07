@@ -14,7 +14,7 @@ Todas as requisicoes a API FiscalAPI exigem autenticacao via API Key.
 Envie a chave no header `X-API-Key` de cada requisicao:
 
 ```bash
-curl -X GET "https://api.fiscalapi.com.br/api/consultar?uf=SP&cpf=12345678900" \
+curl -X GET "https://api.fiscalapi.com.br/api/consultar?uf=MT&cpf=12345678909" \
   -H "X-API-Key: fapi_sua_chave_aqui"
 ```
 

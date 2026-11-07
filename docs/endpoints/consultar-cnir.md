@@ -16,7 +16,7 @@ Consulta dados de pessoa fisica ou juridica e imoveis rurais cadastrados no CAFI
 ## Exemplo de Requisicao
 
 ```bash
-curl -X GET "https://api.fiscalapi.com.br/api/consultar-cnir?cpf=12345678900" \
+curl -X GET "https://api.fiscalapi.com.br/api/consultar-cnir?cpf=12345678909" \
   -H "X-API-Key: sua_api_key_aqui"
 ```
 
@@ -25,7 +25,7 @@ curl -X GET "https://api.fiscalapi.com.br/api/consultar-cnir?cpf=12345678900" \
 ```json
 {
   "request_id": "a1b2c3d4-e5f6-7890-abcd-ef1234567890",
-  "document": "12345678900",
+  "document": "12345678909",
   "document_type": "cpf",
   "source_status": { "status": "success" },
   "pessoa_fisica": {
@@ -41,7 +41,7 @@ curl -X GET "https://api.fiscalapi.com.br/api/consultar-cnir?cpf=12345678900" \
       "denominacao": "FAZENDA SANTA MARIA",
       "area_total": 1250.5,
       "situacao": "ATIVO",
-      "ni_proprietario": "12345678900",
+      "ni_proprietario": "12345678909",
       "percentual_proprietario": 100.0,
       "condominos": [],
       "dados_tributarios": {

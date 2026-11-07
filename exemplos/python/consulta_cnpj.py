@@ -23,7 +23,7 @@ def consultar_cnpj(cnpj: str) -> dict:
 
 
 if __name__ == "__main__":
-    resultado = consultar_cnpj("12345678000199")
+    resultado = consultar_cnpj("12345678000195")
 
     if resultado["source_status"]["status"] == "success" and resultado["result"]:
         empresa = resultado["result"]

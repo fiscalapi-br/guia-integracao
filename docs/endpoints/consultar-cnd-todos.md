@@ -14,7 +14,7 @@ Consulta CND Estadual (ICMS) em **todos os estados com provider disponivel**. Re
 ## Exemplo de Requisicao
 
 ```bash
-curl -X GET "https://api.fiscalapi.com.br/api/consultar-cnd-todos?cnpj=12345678000199" \
+curl -X GET "https://api.fiscalapi.com.br/api/consultar-cnd-todos?cnpj=12345678000195" \
   -H "X-API-Key: sua_api_key_aqui"
 ```
 
@@ -23,7 +23,7 @@ curl -X GET "https://api.fiscalapi.com.br/api/consultar-cnd-todos?cnpj=123456780
 ```json
 {
   "request_id": "a1b2c3d4-e5f6-7890-abcd-ef1234567890",
-  "document": "12345678000199",
+  "document": "12345678000195",
   "document_type": "cnpj",
   "results": [
     {

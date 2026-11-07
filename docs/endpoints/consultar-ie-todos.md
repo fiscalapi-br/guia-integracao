@@ -16,7 +16,7 @@ Consulta a inscricao estadual de um produtor em **todos os estados suportados si
 ## Exemplo de Requisicao
 
 ```bash
-curl -X GET "https://api.fiscalapi.com.br/api/consultar-ie-todos?cpf=12345678900" \
+curl -X GET "https://api.fiscalapi.com.br/api/consultar-ie-todos?cpf=12345678909" \
   -H "X-API-Key: sua_api_key_aqui"
 ```
 
@@ -25,7 +25,7 @@ curl -X GET "https://api.fiscalapi.com.br/api/consultar-ie-todos?cpf=12345678900
 ```json
 {
   "request_id": "a1b2c3d4-e5f6-7890-abcd-ef1234567890",
-  "document": "12345678900",
+  "document": "12345678909",
   "document_type": "cpf",
   "cached_ufs": [],
   "results": [

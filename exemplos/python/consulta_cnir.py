@@ -29,7 +29,7 @@ def consultar_cnir(cpf: str | None = None, cnpj: str | None = None) -> dict:
 
 
 if __name__ == "__main__":
-    resultado = consultar_cnir(cpf="12345678900")
+    resultado = consultar_cnir(cpf="12345678909")
 
     if resultado["source_status"]["status"] == "success":
         print(f"Total de imoveis: {resultado['total_imoveis']}")

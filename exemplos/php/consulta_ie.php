@@ -79,7 +79,7 @@ function consultarIETodos(?string $cpf = null, ?string $cnpj = null): array
 }
 
 // Exemplo de uso
-$resultado = consultarIE('MT', cpf: '12345678900');
+$resultado = consultarIE('MT', cpf: '12345678909');
 echo "Encontradas " . count($resultado['results']) . " inscricoes em MT\n";
 
 foreach ($resultado['results'] as $ie) {

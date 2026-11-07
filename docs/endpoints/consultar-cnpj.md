@@ -13,7 +13,7 @@ Consulta dados publicos de um CNPJ na Receita Federal. Retorna razao social, sit
 ## Exemplo de Requisicao
 
 ```bash
-curl -X GET "https://api.fiscalapi.com.br/api/consultar-cnpj?cnpj=12345678000199" \
+curl -X GET "https://api.fiscalapi.com.br/api/consultar-cnpj?cnpj=12345678000195" \
   -H "X-API-Key: sua_api_key_aqui"
 ```
 
@@ -22,7 +22,7 @@ curl -X GET "https://api.fiscalapi.com.br/api/consultar-cnpj?cnpj=12345678000199
 ```json
 {
   "request_id": "a1b2c3d4-e5f6-7890-abcd-ef1234567890",
-  "cnpj": "12345678000199",
+  "cnpj": "12345678000195",
   "cached": false,
   "source_status": { "status": "success", "error_code": "", "error_message": "" },
   "result": {

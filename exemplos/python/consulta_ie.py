@@ -66,7 +66,7 @@ def perfil_produtor(cpf: str | None = None, cnpj: str | None = None) -> dict:
 
 if __name__ == "__main__":
     # Consulta IE em Mato Grosso por CPF
-    resultado = consultar_ie(uf="MT", cpf="12345678900")
+    resultado = consultar_ie(uf="MT", cpf="12345678909")
     print(f"Encontradas {len(resultado['results'])} inscricoes em MT")
 
     for ie in resultado["results"]:
@@ -76,7 +76,7 @@ if __name__ == "__main__":
         print()
 
     # Consulta em todos os estados
-    todos = consultar_ie_todos(cpf="12345678900")
+    todos = consultar_ie_todos(cpf="12345678909")
     for uf_result in todos["results"]:
         uf = uf_result["uf"]
         status = uf_result["source_status"]["status"]

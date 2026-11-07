@@ -49,7 +49,7 @@ async Task<JsonDocument> PerfilProdutor(string? cpf = null, string? cnpj = null)
 }
 
 // Exemplo de uso
-var resultado = await ConsultarIE("MT", "12345678900");
+var resultado = await ConsultarIE("MT", "12345678909");
 var results = resultado.RootElement.GetProperty("results");
 Console.WriteLine($"Encontradas {results.GetArrayLength()} inscricoes em MT");
 

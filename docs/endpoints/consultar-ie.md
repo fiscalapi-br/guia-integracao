@@ -18,7 +18,7 @@ Consulta a inscricao estadual de um produtor rural na SEFAZ de um estado especif
 ## Exemplo de Requisicao
 
 ```bash
-curl -X GET "https://api.fiscalapi.com.br/api/consultar?uf=MT&cpf=12345678900" \
+curl -X GET "https://api.fiscalapi.com.br/api/consultar?uf=MT&cpf=12345678909" \
   -H "X-API-Key: sua_api_key_aqui"
 ```
 
@@ -27,7 +27,7 @@ curl -X GET "https://api.fiscalapi.com.br/api/consultar?uf=MT&cpf=12345678900" \
 ```json
 {
   "request_id": "a1b2c3d4-e5f6-7890-abcd-ef1234567890",
-  "document": "12345678900",
+  "document": "12345678909",
   "document_type": "cpf",
   "uf": "MT",
   "cached": false,
@@ -53,7 +53,7 @@ curl -X GET "https://api.fiscalapi.com.br/api/consultar?uf=MT&cpf=12345678900" \
       "cnae_descricao": "CULTIVO DE ARROZ",
       "regime_apuracao_icms": "NORMAL",
       "situacao_nfe": "HABILITADO",
-      "cpf_cnpj": "123.456.789-00",
+      "cpf_cnpj": "123.456.789-09",
       "situacao_cadastral": "ATIVA"
     }
   ]
@@ -96,11 +96,10 @@ curl -X GET "https://api.fiscalapi.com.br/api/consultar?uf=MT&cpf=12345678900" \
 | 400 | `PARAMETRO_AUSENTE` | Nenhum documento informado |
 | 400 | `PARAMETRO_CONFLITANTE` | Mais de um documento informado |
 | 400 | `DOCUMENTO_INVALIDO` | CPF, CNPJ ou IE com formato invalido |
-| 402 | `LIMITE_ATINGIDO` | Creditos do mes esgotados |
-| 402 | `FREE_TIER_ESGOTADO` | As 10 consultas gratis do mes acabaram (conta sem plano) |
+| 402 | `LIMITE_ATINGIDO` | Creditos do mes, ou as 10 consultas gratis do mes, acabaram (no gratis, o corpo traz `free_queries_renew_on`) |
 | 403 | `API_KEY_ERROR` | Chave ausente, invalida ou revogada |
 | 429 | `RATE_LIMIT_EXCEEDED` | Limite de requisicoes por minuto do plano excedido |
-| 502 | `CAPTCHA_FALHOU` | Falha temporaria ao consultar o portal do estado. Tente de novo |
+| 502 | `PROCESSAMENTO_FALHOU` | Falha temporaria ao consultar a fonte oficial. Tente de novo |
 | 503 | `SITE_INDISPONIVEL` | Portal da SEFAZ fora do ar |
 
 ## UFs Suportadas
