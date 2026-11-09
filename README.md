@@ -26,6 +26,8 @@ Ideal para ERPs, plataformas de emissao de NF-e, sistemas contabeis, agritechs e
 | `GET /api/consultar` | Consulta IE por UF (CPF, CNPJ ou IE) | [Ver docs](docs/endpoints/consultar-ie.md) |
 | `GET /api/consultar-ie-todos` | Consulta IE em todos os estados | [Ver docs](docs/endpoints/consultar-ie-todos.md) |
 | `GET /api/consultar-cnpj` | Consulta CNPJ na Receita Federal | [Ver docs](docs/endpoints/consultar-cnpj.md) |
+| `GET /api/consultar-simples-nacional` | Situacao no Simples Nacional e SIMEI | [Ver docs](docs/endpoints/consultar-simples-nacional.md) |
+| `GET /api/consultar-nfse` | NFS-e (padrao nacional) por chave de acesso, sem certificado | [Ver docs](docs/endpoints/consultar-nfse.md) |
 | `GET /api/perfil-produtor` | Perfil completo do produtor rural | [Ver docs](docs/endpoints/perfil-produtor.md) |
 | `GET /api/consultar-cnd` | CND Estadual (ICMS) por UF | [Ver docs](docs/endpoints/consultar-cnd.md) |
 | `GET /api/consultar-cnd-todos` | CND em todos os estados | [Ver docs](docs/endpoints/consultar-cnd-todos.md) |

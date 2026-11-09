@@ -23,6 +23,16 @@ curl -s -X GET "${BASE_URL}/api/consultar-cnpj?cnpj=12345678000195" \
   -H "X-API-Key: ${API_KEY}" | python3 -m json.tool
 
 echo ""
+echo "=== Situacao no Simples Nacional ==="
+curl -s -X GET "${BASE_URL}/api/consultar-simples-nacional?cnpj=11222333000181" \
+  -H "X-API-Key: ${API_KEY}" | python3 -m json.tool
+
+echo ""
+echo "=== NFS-e por chave (leva de 30 a 60 s) ==="
+curl -s -m 120 -X GET "${BASE_URL}/api/consultar-nfse?chave=35503082211222333000181000000000012326100000045676" \
+  -H "X-API-Key: ${API_KEY}" | python3 -m json.tool
+
+echo ""
 echo "=== Perfil Completo do Produtor ==="
 curl -s -X GET "${BASE_URL}/api/perfil-produtor?cnpj=12345678000195" \
   -H "X-API-Key: ${API_KEY}" | python3 -m json.tool
