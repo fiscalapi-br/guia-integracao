@@ -18,7 +18,7 @@ curl -X GET "https://api.fiscalapi.com.br/api/consultar-nfse?chave=3550308221122
   -H "X-API-Key: sua_api_key_aqui"
 ```
 
-Uma consulta nova leva de 30 a 60 segundos: use timeout de pelo menos 90 s. A mesma chave consultada de novo em ate 24 h volta do cache na hora (`cached: true`) e tambem e cobrada.
+Uma consulta nova leva de 30 a 60 segundos: use timeout de pelo menos 100 s (a consulta e encerrada em 95 s). A mesma chave consultada de novo em ate 24 h volta do cache na hora (`cached: true`) e tambem e cobrada.
 
 ## Campos da Resposta
 
