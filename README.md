@@ -43,7 +43,7 @@ Ideal para ERPs, plataformas de emissao de NF-e, sistemas contabeis, agritechs e
 
 ### 1. Obtenha sua API Key
 
-Crie uma conta em [app.fiscalapi.com.br](https://app.fiscalapi.com.br) e gere a chave em **Chave API** no painel. Conta que nunca assinou plano, com e-mail confirmado e sem recarga, tem 10 consultas gratis por mes no painel e pela API: IE em um estado (`/api/consultar`) e CNPJ (`/api/consultar-cnpj`). Nao valem para IE em todos os estados nem para CNPJ ao vivo. Depois disso, e preciso plano (a partir do Lite, R$ 19,99/mes) ou saldo.
+Crie uma conta em [app.fiscalapi.com.br](https://app.fiscalapi.com.br) e gere a chave em **Chave API** no painel. Conta que nunca assinou plano, com e-mail confirmado e sem recarga, tem 10 consultas gratis por mes no painel e pela API, em qualquer consulta avulsa: IE em um estado, CNPJ (inclusive ao vivo), Simples Nacional, NFS-e, certidoes, CNIR, SIGEF e as demais. Cada consulta entregue gasta 1 das 10; erro nao gasta. Ficam fora a NF-e sem certificado, a IE e a CND em todos os estados (`/api/consultar-ie-todos`, `/api/consultar-cnd-todos`), todas as certidoes de uma vez (`/api/certidoes-todas`) e as consultas em lote. A parte, 10 XML de NF-e com certificado por mes. Fora disso, ou depois das 10, e preciso plano (a partir do Lite, R$ 19,99/mes) ou saldo.
 
 ### 2. Faca sua primeira consulta
 
@@ -115,7 +115,7 @@ Detalhes completos em [docs/autenticacao.md](docs/autenticacao.md).
 
 | Plano | Preco | Creditos/mes | Requisicoes/min | Acesso |
 |-------|-------|--------------|-----------------|--------|
-| **Gratis** | R$ 0 | 10 consultas | 5 | Painel + API: IE (uma UF por vez) e CNPJ. Conta que nunca assinou, com e-mail confirmado e sem recarga |
+| **Gratis** | R$ 0 | 10 consultas | 5 | Painel + API: qualquer consulta avulsa, menos NF-e sem certificado, consultas em todos os estados, todas as certidoes de uma vez e lotes. Conta que nunca assinou, com e-mail confirmado e sem recarga |
 | **Lite** | R$ 19,99/mes | 30 | 5 | Painel + API |
 | **Starter** | R$ 50/mes | 500 | 20 | Painel + API |
 | **Pro** | R$ 130/mes | 2.000 | 60 | Painel + API |
