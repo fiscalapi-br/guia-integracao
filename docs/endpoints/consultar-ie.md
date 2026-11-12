@@ -96,7 +96,7 @@ curl -X GET "https://api.fiscalapi.com.br/api/consultar?uf=MT&cpf=12345678909" \
 | 400 | `PARAMETRO_AUSENTE` | Nenhum documento informado |
 | 400 | `PARAMETRO_CONFLITANTE` | Mais de um documento informado |
 | 400 | `DOCUMENTO_INVALIDO` | CPF, CNPJ ou IE com formato invalido |
-| 402 | `LIMITE_ATINGIDO` | Creditos do mes, ou as 10 consultas gratis do mes, acabaram (no gratis, o corpo traz `free_queries_renew_on`) |
+| 402 | `LIMITE_ATINGIDO` | Creditos do mes acabaram, ou conta sem plano nem saldo |
 | 403 | `API_KEY_ERROR` | Chave ausente, invalida ou revogada |
 | 429 | `RATE_LIMIT_EXCEEDED` | Limite de requisicoes por minuto do plano excedido |
 | 502 | `PROCESSAMENTO_FALHOU` | Falha temporaria ao consultar a fonte oficial. Tente de novo |

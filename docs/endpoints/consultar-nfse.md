@@ -40,7 +40,7 @@ Campo ausente na nota vem `null`.
 
 ## Cobranca
 
-Mesmo preco do XML de NF-e sem certificado, so quando a NFS-e e entregue. Chave invalida, nota nao encontrada e falha nao sao cobradas. Entra nas 10 consultas gratis do mes da conta que nunca assinou (gasta 1 das 10).
+Mesmo preco do XML de NF-e sem certificado, so quando a NFS-e e entregue. Chave invalida, nota nao encontrada e falha nao sao cobradas. Pela API, pede plano ou saldo; as 10 consultas gratis do mes sao so no painel.
 
 ## Erros
 
