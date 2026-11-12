@@ -43,7 +43,7 @@ Ideal para ERPs, plataformas de emissao de NF-e, sistemas contabeis, agritechs e
 
 ### 1. Obtenha sua API Key
 
-Crie uma conta em [app.fiscalapi.com.br](https://app.fiscalapi.com.br) e gere a chave em **Chave API** no painel. Conta que nunca assinou plano, com e-mail confirmado e sem recarga, tem 10 consultas gratis por mes no painel e pela API, em qualquer consulta avulsa: IE em um estado, CNPJ (inclusive ao vivo), Simples Nacional, NFS-e, certidoes, CNIR, SIGEF e as demais. Cada consulta entregue gasta 1 das 10; erro nao gasta. Ficam fora a NF-e sem certificado, a IE e a CND em todos os estados (`/api/consultar-ie-todos`, `/api/consultar-cnd-todos`), todas as certidoes de uma vez (`/api/certidoes-todas`) e as consultas em lote. A parte, 10 XML de NF-e com certificado por mes. Fora disso, ou depois das 10, e preciso plano (a partir do Lite, R$ 19,99/mes) ou saldo.
+Crie uma conta em [app.fiscalapi.com.br](https://app.fiscalapi.com.br) e gere a chave em **Chave API** no painel. Pela API, toda consulta pede plano (a partir do Lite, R$ 19,99/mes) ou saldo de recarga. As 10 consultas gratis do mes sao so no painel: teste la antes de assinar.
 
 ### 2. Faca sua primeira consulta
 
@@ -115,7 +115,7 @@ Detalhes completos em [docs/autenticacao.md](docs/autenticacao.md).
 
 | Plano | Preco | Creditos/mes | Requisicoes/min | Acesso |
 |-------|-------|--------------|-----------------|--------|
-| **Gratis** | R$ 0 | 10 consultas | 5 | Painel + API: qualquer consulta avulsa, menos NF-e sem certificado, consultas em todos os estados, todas as certidoes de uma vez e lotes. Conta que nunca assinou, com e-mail confirmado e sem recarga |
+| **Gratis (so no painel)** | R$ 0 | 10 consultas | - | So no painel: qualquer consulta avulsa, menos NF-e sem certificado, consultas em todos os estados, todas as certidoes de uma vez e lotes. Conta que nunca assinou, com e-mail confirmado e sem recarga. Nao vale para a API |
 | **Lite** | R$ 19,99/mes | 30 | 5 | Painel + API |
 | **Starter** | R$ 50/mes | 500 | 20 | Painel + API |
 | **Pro** | R$ 130/mes | 2.000 | 60 | Painel + API |
@@ -124,7 +124,7 @@ Detalhes completos em [docs/autenticacao.md](docs/autenticacao.md).
 - A maioria das consultas consome 1 credito; NF-e por chave consome 3 nos planos Lite, Starter e Pro e 1 no Enterprise (so quando o XML vem) e CNPJ ao vivo consome 3.
 - Consulta com erro da fonte nao cobra.
 - Creditos extras a partir do Starter: R$ 0,12 (Starter), R$ 0,07 (Pro) e R$ 0,02 (Enterprise) por credito. No Lite, o caminho e o upgrade.
-- Quando os creditos acabam, a API responde `402` com o codigo `LIMITE_ATINGIDO`; quando sao as 10 gratis do mes que acabaram, o corpo traz tambem `free_queries_used`, `free_queries_limit` e `free_queries_renew_on`. Sem chave, `403` com `API_KEY_ERROR`.
+- Quando os creditos acabam, ou a conta nao tem plano nem saldo, a API responde `402` com o codigo `LIMITE_ATINGIDO`. Sem chave, `403` com `API_KEY_ERROR`.
 
 Tabela completa em [fiscalapi.com.br/precos](https://fiscalapi.com.br/precos/).
 

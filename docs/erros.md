@@ -33,7 +33,7 @@ Todos os erros da FiscalAPI seguem o mesmo formato JSON:
 
 | Codigo | Descricao |
 |--------|-----------|
-| `LIMITE_ATINGIDO` | Creditos do mes esgotados, ou consulta fora da cota gratis em conta sem plano. A resposta traz `usage`, `limit`, `extra_credits` e o `cost` da consulta; quando acabam as 10 gratis do mes, traz tambem `free_queries_used`, `free_queries_limit` e `free_queries_renew_on` |
+| `LIMITE_ATINGIDO` | Creditos do mes esgotados, ou conta sem plano nem saldo. A resposta traz `usage`, `limit`, `extra_credits` e o `cost` da consulta |
 
 ### Rate Limiting (HTTP 429)
 
