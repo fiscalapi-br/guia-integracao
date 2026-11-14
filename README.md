@@ -43,7 +43,7 @@ Ideal para ERPs, plataformas de emissao de NF-e, sistemas contabeis, agritechs e
 
 ### 1. Obtenha sua API Key
 
-Crie uma conta em [app.fiscalapi.com.br](https://app.fiscalapi.com.br) e gere a chave em **Chave API** no painel. Pela API, toda consulta pede plano (a partir do Lite, R$ 19,99/mes) ou saldo de recarga. As 10 consultas gratis do mes sao so no painel: teste la antes de assinar.
+Crie uma conta em [app.fiscalapi.com.br](https://app.fiscalapi.com.br) e gere a chave em **Chave API** no painel. Pela API, toda consulta pede plano (a partir de R$ 50 por mes) ou saldo de recarga. As 10 consultas gratis do mes sao so no painel: teste la antes de assinar.
 
 ### 2. Faca sua primeira consulta
 
@@ -116,14 +116,15 @@ Detalhes completos em [docs/autenticacao.md](docs/autenticacao.md).
 | Plano | Preco | Creditos/mes | Requisicoes/min | Acesso |
 |-------|-------|--------------|-----------------|--------|
 | **Gratis (so no painel)** | R$ 0 | 10 consultas | - | So no painel: qualquer consulta avulsa, menos NF-e sem certificado, consultas em todos os estados, todas as certidoes de uma vez e lotes. Conta que nunca assinou, com e-mail confirmado e sem recarga. Nao vale para a API |
-| **Lite** | R$ 19,99/mes | 30 | 5 | Painel + API |
 | **Starter** | R$ 50/mes | 500 | 20 | Painel + API |
 | **Pro** | R$ 130/mes | 2.000 | 60 | Painel + API |
 | **Enterprise** | R$ 250/mes | 10.000 | 120 | Painel + API |
+| **Sob medida** | Fale com a gente | Acima de 10.000 | - | Painel + API |
 
-- A maioria das consultas consome 1 credito; NF-e por chave consome 3 nos planos Lite, Starter e Pro e 1 no Enterprise (so quando o XML vem) e CNPJ ao vivo consome 3.
+- A maioria das consultas consome 1 credito; NF-e por chave consome 3 nos planos Starter e Pro e 1 no Enterprise (so quando o XML vem) e CNPJ ao vivo consome 3.
 - Consulta com erro da fonte nao cobra.
-- Creditos extras a partir do Starter: R$ 0,12 (Starter), R$ 0,07 (Pro) e R$ 0,02 (Enterprise) por credito. No Lite, o caminho e o upgrade.
+- Creditos extras: R$ 0,12 (Starter), R$ 0,07 (Pro) e R$ 0,02 (Enterprise) por credito.
+- Sob medida: para mais de 10.000 consultas por mes, o plano e montado para o seu volume. Escreva para contato@fiscalapi.com.br.
 - Quando os creditos acabam, ou a conta nao tem plano nem saldo, a API responde `402` com o codigo `LIMITE_ATINGIDO`. Sem chave, `403` com `API_KEY_ERROR`.
 
 Tabela completa em [fiscalapi.com.br/precos](https://fiscalapi.com.br/precos/).

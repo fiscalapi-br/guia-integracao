@@ -5,7 +5,7 @@ Todas as requisicoes a API FiscalAPI exigem autenticacao via API Key.
 ## Obtendo sua API Key
 
 1. Crie uma conta em [app.fiscalapi.com.br](https://app.fiscalapi.com.br)
-2. Confirme o e-mail. Pela API, toda consulta pede plano (a partir do Lite, R$ 19,99/mes) ou saldo de recarga. As 10 consultas gratis do mes sao so no painel: teste la antes de assinar
+2. Confirme o e-mail. Pela API, toda consulta pede plano (a partir de R$ 50 por mes) ou saldo de recarga. As 10 consultas gratis do mes sao so no painel: teste la antes de assinar
 3. No painel, abra **Chave API** e clique em **Gerar nova chave API**
 4. Copie a chave — ela so e exibida uma vez
 
