@@ -39,7 +39,7 @@ Todos os erros da FiscalAPI seguem o mesmo formato JSON:
 
 | Codigo | Descricao |
 |--------|-----------|
-| `RATE_LIMIT_EXCEEDED` | Limite de requisicoes por minuto do plano excedido (Starter 20, Pro 60, Enterprise 120). Veja o header `Retry-After` |
+| `RATE_LIMIT_EXCEEDED` | Limite de requisicoes por minuto do plano excedido (Starter 20, Pro 60, Enterprise 120; conta sem plano, 5). Veja o header `Retry-After` |
 
 ### Fontes Externas (HTTP 502/503)
 
