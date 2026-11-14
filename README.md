@@ -123,7 +123,7 @@ Detalhes completos em [docs/autenticacao.md](docs/autenticacao.md).
 
 - A maioria das consultas consome 1 credito; NF-e por chave consome 3 nos planos Starter e Pro e 1 no Enterprise (so quando o XML vem) e CNPJ ao vivo consome 3.
 - Consulta com erro da fonte nao cobra.
-- Creditos extras: R$ 0,12 (Starter), R$ 0,07 (Pro) e R$ 0,02 (Enterprise) por credito.
+- Creditos extras: R$ 0,12 (Starter), R$ 0,085 (Pro) e R$ 0,035 (Enterprise) por credito.
 - Sob medida: para mais de 10.000 consultas por mes, o plano e montado para o seu volume. Escreva para contato@fiscalapi.com.br.
 - Quando os creditos acabam, ou a conta nao tem plano nem saldo, a API responde `402` com o codigo `LIMITE_ATINGIDO`. Sem chave, `403` com `API_KEY_ERROR`.
 
