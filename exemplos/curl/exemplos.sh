@@ -33,11 +33,6 @@ curl -s -m 120 -X GET "${BASE_URL}/api/consultar-nfse?chave=35503082211222333000
   -H "X-API-Key: ${API_KEY}" | python3 -m json.tool
 
 echo ""
-echo "=== Perfil Completo do Produtor ==="
-curl -s -X GET "${BASE_URL}/api/perfil-produtor?cnpj=12345678000195" \
-  -H "X-API-Key: ${API_KEY}" | python3 -m json.tool
-
-echo ""
 echo "=== CND Estadual em MT ==="
 curl -s -X GET "${BASE_URL}/api/consultar-cnd?uf=MT&cnpj=12345678000195" \
   -H "X-API-Key: ${API_KEY}" | python3 -m json.tool

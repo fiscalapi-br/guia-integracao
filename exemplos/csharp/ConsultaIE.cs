@@ -36,18 +36,6 @@ async Task<JsonDocument> ConsultarIETodos(string cpf)
     return JsonDocument.Parse(json);
 }
 
-// Perfil completo do produtor
-async Task<JsonDocument> PerfilProdutor(string? cpf = null, string? cnpj = null)
-{
-    var param = cpf != null ? $"cpf={Uri.EscapeDataString(cpf)}" : $"cnpj={Uri.EscapeDataString(cnpj!)}";
-    var url = $"{baseUrl}/api/perfil-produtor?{param}";
-    var response = await client.GetAsync(url);
-    response.EnsureSuccessStatusCode();
-
-    var json = await response.Content.ReadAsStringAsync();
-    return JsonDocument.Parse(json);
-}
-
 // Exemplo de uso
 var resultado = await ConsultarIE("MT", "12345678909");
 var results = resultado.RootElement.GetProperty("results");

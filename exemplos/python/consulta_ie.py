@@ -46,24 +46,6 @@ def consultar_ie_todos(cpf: str | None = None, cnpj: str | None = None) -> dict:
     return response.json()
 
 
-def perfil_produtor(cpf: str | None = None, cnpj: str | None = None) -> dict:
-    """Perfil completo do produtor (IE + Receita Federal + CND)."""
-    params = {}
-    if cpf:
-        params["cpf"] = cpf
-    elif cnpj:
-        params["cnpj"] = cnpj
-
-    response = requests.get(
-        f"{BASE_URL}/api/perfil-produtor",
-        params=params,
-        headers={"X-API-Key": API_KEY},
-        timeout=120,
-    )
-    response.raise_for_status()
-    return response.json()
-
-
 if __name__ == "__main__":
     # Consulta IE em Mato Grosso por CPF
     resultado = consultar_ie(uf="MT", cpf="12345678909")
