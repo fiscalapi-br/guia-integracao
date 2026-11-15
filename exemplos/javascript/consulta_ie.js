@@ -41,23 +41,6 @@ async function consultarIETodos({ cpf, cnpj } = {}) {
   return response.json();
 }
 
-async function perfilProdutor({ cpf, cnpj } = {}) {
-  const params = new URLSearchParams();
-  if (cpf) params.set("cpf", cpf);
-  else if (cnpj) params.set("cnpj", cnpj);
-
-  const response = await fetch(`${BASE_URL}/api/perfil-produtor?${params}`, {
-    headers: { "X-API-Key": API_KEY },
-  });
-
-  if (!response.ok) {
-    const error = await response.json();
-    throw new Error(`${error.error}: ${error.message}`);
-  }
-
-  return response.json();
-}
-
 // Exemplo de uso
 async function main() {
   // Consulta IE em Mato Grosso
@@ -80,4 +63,4 @@ async function main() {
 
 main().catch(console.error);
 
-module.exports = { consultarIE, consultarIETodos, perfilProdutor };
+module.exports = { consultarIE, consultarIETodos };
