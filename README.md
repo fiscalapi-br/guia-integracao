@@ -117,7 +117,7 @@ O saldo da conta e em creditos: 1 credito = R$ 1, e cada consulta desconta o pre
 
 | Plano | Preco | Creditos do plano por mes | Requisicoes/min | Acesso |
 |-------|-------|---------------------------|-----------------|--------|
-| **Gratis (so no painel)** | R$ 0 | 10 consultas | - | So no painel: qualquer consulta avulsa, menos NF-e sem certificado, consultas em todos os estados, todas as certidoes de uma vez e lotes. Conta que nunca assinou, com e-mail confirmado e sem creditos extras. Nao vale para a API |
+| **Gratis (so no painel)** | R$ 0 | — (10 consultas gratis) | - | So no painel: qualquer consulta avulsa, menos NF-e sem certificado, consultas em todos os estados, todas as certidoes de uma vez e lotes. Conta que nunca assinou, com e-mail confirmado e sem creditos extras. Nao vale para a API |
 | **Starter** | R$ 50/mes | 50 creditos (500 consultas) | 20 | Painel + API |
 | **Pro** | R$ 130/mes | 130 creditos (2.000 consultas) | 60 | Painel + API |
 | **Enterprise** | R$ 250/mes | 250 creditos (10.000 consultas) | 120 | Painel + API |

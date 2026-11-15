@@ -55,7 +55,7 @@ Todos os erros da FiscalAPI seguem o mesmo formato JSON:
 | `consultas_restantes` | Quantas consultas deste tipo o saldo ainda paga |
 | `creditos` | Saldo em creditos (1 credito = R$ 1): `plano` (creditos do plano que restam no ciclo), `extras` (creditos extras), `guardados` (creditos do plano que sobraram quando o plano venceu; voltam ao assinar um plano e, ate la, nao pagam consultas) e `disponivel` (`plano` + `extras`). Pode vir `null` |
 | `preco` | Preco em R$ desta consulta: `plano` com os creditos do plano (`null` em conta sem plano) e `extras` com os creditos extras |
-| `message` | Mensagem pronta para o usuario. Em conta sem plano: "Seu saldo não cobre esta consulta. Assine um plano para continuar." |
+| `message` | Mensagem pronta para o usuario. Em conta sem plano, em geral: "Seu saldo não cobre esta consulta. Assine um plano para continuar." |
 | `cost` | Unidade antiga, mantida por compatibilidade: quantas consultas do saldo esta consulta gastaria. Para o preco em R$ use `preco`; para o saldo, `creditos` |
 | `usage`, `limit`, `extra_credits` | Mantidos por compatibilidade, na unidade antiga. Nao use para calcular o saldo |
 
