@@ -40,14 +40,14 @@ Campo ausente na nota vem `null`.
 
 ## Cobranca
 
-Mesmo preco do XML de NF-e sem certificado, so quando a NFS-e e entregue. Chave invalida, nota nao encontrada e falha nao sao cobradas. Pela API, pede plano ou saldo; as 10 consultas gratis do mes sao so no painel.
+Mesmo preco do XML de NF-e sem certificado, so quando a NFS-e e entregue: R$ 0,30 (Starter), R$ 0,195 (Pro) e R$ 0,05 (Enterprise) com os creditos do plano; R$ 0,36, R$ 0,255 e R$ 0,05 com creditos extras. Chave invalida, nota nao encontrada e falha nao sao cobradas. Pela API, pede plano ou creditos extras; as 10 consultas gratis do mes sao so no painel.
 
 ## Erros
 
 | HTTP | Codigo | Significado |
 |------|--------|-------------|
 | 400 | `PARAMETRO_AUSENTE`, `CHAVE_INVALIDA` | Chave ausente ou invalida |
-| 402 | — | Saldo insuficiente |
+| 402 | `LIMITE_ATINGIDO` | O saldo em creditos nao cobre a nota |
 | 404 | `NFSE_NAO_ENCONTRADA` | NFS-e nao encontrada para a chave |
 | 429 | `CONSULTAS_SIMULTANEAS` | Mais de 2 consultas em andamento na conta (`Retry-After`) |
 | 502 | `FONTE_INDISPONIVEL` | Fonte oficial indisponivel |

@@ -33,7 +33,31 @@ Todos os erros da FiscalAPI seguem o mesmo formato JSON:
 
 | Codigo | Descricao |
 |--------|-----------|
-| `LIMITE_ATINGIDO` | Creditos do mes esgotados, ou conta sem plano nem saldo. A resposta traz `usage`, `limit`, `extra_credits` e o `cost` da consulta |
+| `LIMITE_ATINGIDO` | O saldo em creditos nao cobre a consulta, ou a conta nao tem plano nem creditos extras |
+
+```json
+{
+  "error": "LIMITE_ATINGIDO",
+  "usage": 500,
+  "limit": 500,
+  "plan": "starter",
+  "extra_credits": 0,
+  "cost": 1,
+  "consultas_restantes": 0,
+  "creditos": {"plano": 0.0, "extras": 0.0, "guardados": 0.0, "disponivel": 0.0},
+  "preco": {"plano": 0.1, "extras": 0.12},
+  "message": "Seu saldo do plano Starter não cobre esta consulta. Faça uma recarga no painel ou mude de plano para continuar."
+}
+```
+
+| Campo | Descricao |
+|-------|-----------|
+| `consultas_restantes` | Quantas consultas deste tipo o saldo ainda paga |
+| `creditos` | Saldo em creditos (1 credito = R$ 1): `plano` (creditos do plano que restam no ciclo), `extras` (creditos extras), `guardados` (de um plano que venceu; so voltam quando a conta assina um plano) e `disponivel` (`plano` + `extras`). Pode vir `null` |
+| `preco` | Preco em R$ desta consulta: `plano` com os creditos do plano (`null` em conta sem plano) e `extras` com os creditos extras |
+| `usage`, `limit`, `extra_credits`, `cost` | Mantidos por compatibilidade, na unidade antiga. Nao use para calcular o saldo |
+
+Para ver o saldo sem esperar o 402: `GET /api/saldo` (nao cobra).
 
 ### Rate Limiting (HTTP 429)
 

@@ -251,7 +251,7 @@ async def main() -> int:
             contagem = await processar(fila, cliente, args.saida, args.incompletos,
                                        args.paralelo, args.por_minuto)
         except SemCredito as exc:
-            print(f"Creditos esgotados, parei aqui: {exc}", file=sys.stderr)
+            print(f"O saldo em creditos nao cobre a consulta, parei aqui: {exc}", file=sys.stderr)
             return 1
     print(f"Fim: {contagem}", flush=True)
     return 0
