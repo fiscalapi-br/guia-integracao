@@ -37,6 +37,7 @@ Ideal para ERPs, plataformas de emissao de NF-e, sistemas contabeis, agritechs e
 | `GET /api/consultar-sigef` | Parcelas SIGEF (INCRA) | [docs.fiscalapi.com.br](https://docs.fiscalapi.com.br) |
 | `POST /api/consultar-nfe-xml` | XML completo (nfeProc) da NF-e pela chave de acesso, com o seu certificado A1 | [Ver pagina](https://fiscalapi.com.br/nfe-por-chave/) |
 | `POST /api/consultar-cte-xml` | XML completo (cteProc) do CT-e, CT-e OS ou GTV-e pela chave de acesso, com o seu certificado A1 | [Ver pagina](https://fiscalapi.com.br/cte-por-chave/) |
+| `POST /api/consultar-difal-saida` | DIFAL de saida (Beta): NF-e com DIFAL e FCP, situacao da guia e valor em aberto por UF de destino (AC, AP, DF, GO, MS, MT, RR, RS, SC, SE), com o certificado A1 do emitente | [Ver docs](https://docs.fiscalapi.com.br/docs/difal/consultar-difal-saida) |
 
 ## Inicio Rapido
 
