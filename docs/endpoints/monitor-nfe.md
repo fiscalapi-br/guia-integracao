@@ -125,7 +125,7 @@ def avisos():
     ts = request.headers.get("X-FiscalAPI-Timestamp", "")
     assinaturas = [p.strip()[3:] for p in request.headers.get("X-FiscalAPI-Assinatura", "").split(",")
                    if p.strip().startswith("v1=")]
-    if not ts.isdigit() or abs(time.time() - int(ts)) > 300:
+    if not (ts.isascii() and ts.isdigit()) or abs(time.time() - int(ts)) > 300:
         return "", 401
     esperada = hmac.new(SEGREDO.encode(), f"{ts}.".encode() + corpo, hashlib.sha256).hexdigest()
     if not any(hmac.compare_digest(esperada.encode(), a.encode()) for a in assinaturas):
@@ -149,7 +149,7 @@ app.post('/fiscalapi/avisos', express.raw({ type: 'application/json' }), (req, r
   if (!/^\d+$/.test(ts) || Math.abs(Date.now() / 1000 - Number(ts)) > 300) return res.sendStatus(401);
   const esperada = crypto.createHmac('sha256', process.env.FISCALAPI_WEBHOOK_SEGREDO)
     .update(Buffer.concat([Buffer.from(`${ts}.`), req.body])).digest('hex');
-  const ok = assinaturas.some((a) => a.length === esperada.length &&
+  const ok = assinaturas.some((a) => /^[0-9a-f]{64}$/.test(a) &&
     crypto.timingSafeEqual(Buffer.from(a), Buffer.from(esperada)));
   if (!ok) return res.sendStatus(401);
   const aviso = JSON.parse(req.body.toString('utf8'));
