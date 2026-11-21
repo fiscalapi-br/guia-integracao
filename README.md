@@ -37,6 +37,7 @@ Ideal para ERPs, plataformas de emissao de NF-e, sistemas contabeis, agritechs e
 | `GET /api/consultar-sigef` | Parcelas SIGEF (INCRA) | [docs.fiscalapi.com.br](https://docs.fiscalapi.com.br) |
 | `POST /api/consultar-nfe-xml` | XML completo (nfeProc) da NF-e pela chave de acesso, com o seu certificado A1 | [Ver pagina](https://fiscalapi.com.br/nfe-por-chave/) |
 | `POST /api/consultar-cte-xml` | XML completo (cteProc) do CT-e, CT-e OS ou GTV-e pela chave de acesso, com o seu certificado A1 | [Ver pagina](https://fiscalapi.com.br/cte-por-chave/) |
+| `POST /api/monitor-nfe/chaves` | Monitor de NF-e: acompanha a nota na SEFAZ por ate 180 dias e avisa no seu webhook quando ela e cancelada, denegada ou recebe evento. Sem certificado | [Ver docs](docs/endpoints/monitor-nfe.md) |
 | `POST /api/consultar-difal-saida` | DIFAL de saida (Beta): NF-e com DIFAL e FCP, situacao da guia e valor em aberto por UF de destino (AC, AP, DF, GO, MS, MT, RR, RS, SC, SE), com o certificado A1 do emitente | [Ver docs](https://docs.fiscalapi.com.br/docs/difal/consultar-difal-saida) |
 
 ## Inicio Rapido
@@ -90,6 +91,8 @@ curl -X GET "https://api.fiscalapi.com.br/api/consultar?uf=MT&cpf=12345678909" \
 | Ruby | [exemplos/ruby/](exemplos/ruby/) |
 | cURL | [exemplos/curl/](exemplos/curl/) |
 
+**Monitor de NF-e e webhook:** cadastro das chaves, corpo do aviso e verificacao da assinatura `X-FiscalAPI-Assinatura` em Python e Node.js em [docs/endpoints/monitor-nfe.md](docs/endpoints/monitor-nfe.md).
+
 **Consulta em lote:** [exemplos/python/consulta_ie_lote.py](exemplos/python/consulta_ie_lote.py) consulta a IE de milhares de CPFs e CNPJs em todos os estados, em paralelo e dentro do limite por minuto da conta, salvando o resultado em CSV.
 
 ## Autenticacao
@@ -109,6 +112,7 @@ Detalhes completos em [docs/autenticacao.md](docs/autenticacao.md).
 - **Compliance fiscal**: Consultar CND estadual para due diligence
 - **Agritech**: Enriquecer cadastro de produtores com dados de todos os estados
 - **ERP/Contabilidade**: Automatizar consultas que hoje sao feitas manualmente nos portais SEFAZ
+- **Contas a pagar e recebimento**: Saber na hora quando uma NF-e recebida ou emitida e cancelada (Monitor de NF-e com webhook)
 - **Credito rural**: Consultar imoveis rurais no CNIR/CAFIR para analise de credito
 
 ## Limites e Planos
@@ -129,6 +133,7 @@ O saldo da conta e em creditos: 1 credito = R$ 1, e cada consulta desconta o pre
 | Com creditos extras | R$ 0,12 | R$ 0,085 | R$ 0,035 |
 
 - NF-e por chave, so quando o XML vem: R$ 0,30 (Starter), R$ 0,195 (Pro) e R$ 0,025 (Enterprise) com os creditos do plano; R$ 0,36, R$ 0,255 e R$ 0,025 com creditos extras.
+- Monitor de NF-e, por chave aceita (cobre todo o acompanhamento): R$ 0,03 (Starter), R$ 0,02 (Pro) e R$ 0,015 (Enterprise), com creditos do plano ou extras. Chave ja monitorada ou invalida nao cobra.
 - CNPJ ao vivo: R$ 0,30, R$ 0,195 e R$ 0,075 com os creditos do plano; R$ 0,36, R$ 0,255 e R$ 0,105 com creditos extras.
 - Consulta com erro da fonte nao cobra.
 - Creditos extras: comprados no painel, com plano ativo, em pacotes de 50, 100, 250 ou 500 creditos ou outro valor a partir de 20. Nao vencem e so sao usados depois que os creditos do plano acabam.
