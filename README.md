@@ -1,10 +1,12 @@
-# FiscalAPI — API de Consulta Fiscal para o Brasil
+# FiscalAPI: API de consulta fiscal para o Brasil
 
 [![Site](https://img.shields.io/badge/site-fiscalapi.com.br-blue)](https://fiscalapi.com.br)
 [![Docs](https://img.shields.io/badge/docs-docs.fiscalapi.com.br-green)](https://docs.fiscalapi.com.br)
 [![Status](https://img.shields.io/badge/status-production-brightgreen)]()
 
-**API REST para consulta automatizada de Inscricao Estadual, CNPJ, CND Estadual e imoveis rurais (CNIR/CAFIR) em todos os 27 estados brasileiros.**
+**A FiscalAPI é uma API REST para consultar inscrição estadual (a mesma informação do SINTEGRA) nos 27 estados, CNPJ na Receita Federal, Simples Nacional, certidões (CND estadual, CND Federal, CNDT, CRF/FGTS), XML de NF-e pela chave de acesso, com ou sem certificado, e imóveis rurais (CNIR/CAFIR e SIGEF).** Resposta em JSON, no mesmo formato para todos os estados.
+
+Este repositório traz o guia de cada endpoint e exemplos prontos em Python, Node.js, PHP, Java, C#, Ruby e cURL. Documentação completa: [docs.fiscalapi.com.br](https://docs.fiscalapi.com.br). SDKs oficiais: [Python](https://github.com/fiscalapi-br/fiscalapi-python), [Node.js](https://github.com/fiscalapi-br/fiscalapi-node) e [PHP](https://github.com/fiscalapi-br/fiscalapi-php). Sem programar: [Google Sheets](https://docs.fiscalapi.com.br/docs/guias/google-sheets), [Excel](https://docs.fiscalapi.com.br/docs/guias/excel) e [n8n](https://github.com/fiscalapi-br/n8n-nodes-fiscalapi). Em agentes de IA: [servidor MCP](https://github.com/fiscalapi-br/fiscalapi-mcp).
 
 Ideal para ERPs, plataformas de emissao de NF-e, sistemas contabeis, agritechs e qualquer aplicacao que precise validar dados fiscais de produtores rurais.
 
@@ -36,6 +38,7 @@ Ideal para ERPs, plataformas de emissao de NF-e, sistemas contabeis, agritechs e
 | `GET /api/consultar-cnir` | Imoveis rurais CNIR/CAFIR | [Ver docs](docs/endpoints/consultar-cnir.md) |
 | `GET /api/consultar-sigef` | Parcelas SIGEF (INCRA) | [docs.fiscalapi.com.br](https://docs.fiscalapi.com.br) |
 | `POST /api/consultar-nfe-xml` | XML completo (nfeProc) da NF-e pela chave de acesso, com o seu certificado A1 | [Ver pagina](https://fiscalapi.com.br/nfe-por-chave/) |
+| `POST /api/consultar-nfe-xml-sem-certificado` | Copia para leitura do XML da NF-e (modelo 55) so com a chave de acesso, sem certificado digital e sem a assinatura digital | [Ver docs](https://docs.fiscalapi.com.br/docs/nfe/consultar-nfe-xml-sem-certificado) |
 | `POST /api/consultar-cte-xml` | XML completo (cteProc) do CT-e, CT-e OS ou GTV-e pela chave de acesso, com o seu certificado A1 | [Ver pagina](https://fiscalapi.com.br/cte-por-chave/) |
 | `POST /api/monitor-nfe/chaves` | Monitor de NF-e: acompanha a nota na SEFAZ por ate 180 dias e avisa no seu webhook quando ela e cancelada, denegada ou recebe evento. Sem certificado | [Ver docs](docs/endpoints/monitor-nfe.md) |
 | `POST /api/nfse/notas` | Emissao de NFS-e Nacional com o certificado A1 da sua empresa: empresas, certificado, emitir, consultar, cancelar, substituir, XML, DANFSe e webhook assinado. Homologacao gratis | [Ver docs](docs/endpoints/emissao-nfse.md) |
@@ -50,7 +53,7 @@ Crie uma conta em [app.fiscalapi.com.br](https://app.fiscalapi.com.br) e gere a 
 ### 2. Faca sua primeira consulta
 
 ```bash
-curl -X GET "https://api.fiscalapi.com.br/api/consultar?uf=MT&cpf=12345678909" \
+curl -X GET "https://api.fiscalapi.com.br/api/consultar?uf=MT&cpf=52998224725" \
   -H "X-API-Key: sua_api_key_aqui"
 ```
 
@@ -59,7 +62,7 @@ curl -X GET "https://api.fiscalapi.com.br/api/consultar?uf=MT&cpf=12345678909" \
 ```json
 {
   "request_id": "a1b2c3d4-e5f6-7890-abcd-ef1234567890",
-  "document": "12345678909",
+  "document": "52998224725",
   "document_type": "cpf",
   "uf": "MT",
   "cached": false,
@@ -137,6 +140,7 @@ O saldo da conta e em creditos: 1 credito = R$ 1, e cada consulta desconta o pre
 | Com creditos extras | R$ 0,12 | R$ 0,085 | R$ 0,035 |
 
 - NF-e por chave, so quando o XML vem: R$ 0,30 (Starter), R$ 0,195 (Pro) e R$ 0,025 (Enterprise) com os creditos do plano; R$ 0,36, R$ 0,255 e R$ 0,025 com creditos extras.
+- XML de NF-e sem certificado e NFS-e por chave, por nota: R$ 0,30 (Starter), R$ 0,195 (Pro) e R$ 0,05 (Enterprise) com os creditos do plano; R$ 0,36, R$ 0,255 e R$ 0,05 com creditos extras. Na NF-e sem certificado, toda chave valida e cobrada, mesmo se a nota nao for encontrada; a NFS-e so e cobrada quando a nota vem.
 - Monitor de NF-e, por chave aceita (cobre todo o acompanhamento): R$ 0,03 (Starter), R$ 0,02 (Pro) e R$ 0,015 (Enterprise), com creditos do plano ou extras. Chave ja monitorada ou invalida nao cobra.
 - Emissao de NFS-e, por nota autorizada em producao: R$ 0,15 (Starter), R$ 0,10 (Pro) e R$ 0,07 (Enterprise) com os creditos do plano; R$ 0,18, R$ 0,12 e R$ 0,07 com creditos extras. Rejeitada, cancelamento e homologacao (ate 1.000 notas por mes) nao cobram.
 - CNPJ ao vivo: R$ 0,30, R$ 0,195 e R$ 0,075 com os creditos do plano; R$ 0,36, R$ 0,255 e R$ 0,105 com creditos extras.
