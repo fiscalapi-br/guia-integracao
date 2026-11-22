@@ -51,3 +51,8 @@ echo ""
 echo "=== Monitor de NF-e: chaves monitoradas (nao cobra) ==="
 curl -s -X GET "${BASE_URL}/api/monitor-nfe/chaves?ativo=true&limite=10" \
   -H "X-API-Key: ${API_KEY}" | python3 -m json.tool
+
+echo ""
+echo "=== Emissao de NFS-e: notas emitidas (nao cobra) ==="
+curl -s -X GET "${BASE_URL}/api/nfse/notas?limite=10" \
+  -H "X-API-Key: ${API_KEY}" | python3 -m json.tool
